@@ -106,7 +106,11 @@ const flowSteps = ref([
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+    background: linear-gradient(
+      135deg,
+      var(--text-primary) 0%,
+      var(--accent-color) 100%
+    );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -135,8 +139,8 @@ const flowSteps = ref([
 
 .flow-slide {
   border-radius: 24px;
-  background-color: rgba(30, 41, 59, 1);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  background-color: var(--bg-color);
+  box-shadow: 0 15px 35px rgba(166, 127, 120, 0.25);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -151,7 +155,7 @@ const flowSteps = ref([
 
 .device-mockup {
   flex: 1;
-  background: #000;
+  background: var(--bg-color);
   position: relative;
   overflow: hidden;
 
@@ -165,8 +169,8 @@ const flowSteps = ref([
 
 .step-info {
   padding: 1.5rem;
-  background: rgba(15, 23, 42, 0.95);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.85);
+  border-top: 1px solid rgba(166, 127, 120, 0.2);
   text-align: left;
 
   h3 {
@@ -183,29 +187,31 @@ const flowSteps = ref([
   }
 }
 
-/* 覆寫 Swiper 樣式以配合深色主題 */
+/* 覆寫 Swiper 樣式以配合主題 */
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
-  color: var(--accent-color);
-  background: rgba(15, 23, 42, 0.5);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.6);
   width: 40px;
   height: 40px;
   border-radius: 50%;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  border: 1px solid var(--glass-border);
 
   &::after {
     font-size: 1.2rem;
   }
 
   &:hover {
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--accent-color);
   }
 }
 
 :deep(.swiper-pagination-bullet) {
   background: var(--text-secondary);
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 :deep(.swiper-pagination-bullet-active) {

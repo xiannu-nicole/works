@@ -39,12 +39,12 @@ const activeTab = ref("onePagePortfolio"); // 'onePagePortfolio' or 'webViewPort
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap");
 
 :root {
-  --bg-color: #0f172a;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --accent-color: #38bdf8;
-  --glass-bg: rgba(30, 41, 59, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --bg-color: #e1dcd9; /* Mushroom */
+  --text-primary: #32435f; /* Gunmetal */
+  --text-secondary: #8f8681; /* Elephant */
+  --accent-color: #a67f78; /* Thatch */
+  --glass-bg: rgba(225, 220, 217, 0.6);
+  --glass-border: rgba(166, 127, 120, 0.2);
 }
 
 * {
@@ -84,7 +84,11 @@ body {
 .logo {
   font-size: 1.8rem;
   font-weight: 800;
-  background: linear-gradient(to right, #38bdf8, #818cf8);
+  background: linear-gradient(
+    to right,
+    var(--text-primary),
+    var(--accent-color)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
