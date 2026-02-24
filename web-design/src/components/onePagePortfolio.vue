@@ -168,6 +168,7 @@ const swiperBreakpoints = {
   <div class="portfolio-container">
     <div class="page-header">
       <h2 class="main-title">一頁式網頁設計集</h2>
+      <p class="subtitle">開發、切版與設計</p>
     </div>
 
     <div
@@ -293,7 +294,7 @@ const swiperBreakpoints = {
 
 .project-swiper {
   width: 100%;
-  padding-bottom: 1.5rem;
+  padding: 0 1rem 1.5rem;
   /* 允許左右按鈕超出邊界顯示 */
   overflow: visible;
 }
@@ -398,15 +399,16 @@ const swiperBreakpoints = {
 :deep(.swiper-button-prev) {
   color: var(--text-primary);
   background: rgba(255, 255, 255, 0.7);
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
   border-radius: 50%;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
   box-shadow: 0 4px 12px rgba(166, 127, 120, 0.15);
   top: 40%;
-
+  font-size: 12px;
   &:hover {
     background: var(--text-primary);
     color: #fff;
@@ -416,11 +418,11 @@ const swiperBreakpoints = {
 }
 
 :deep(.swiper-button-prev) {
-  left: -0.5rem;
+  left: -1.8rem;
 }
 
 :deep(.swiper-button-next) {
-  right: -0.5rem;
+  right: -1.8rem;
 }
 
 /* 響應式調整 */

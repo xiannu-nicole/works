@@ -10,7 +10,6 @@ import "swiper/css/effect-cards";
 
 const modules = [Navigation, Pagination, EffectCards];
 
-// Placeholders for webView PNGs (金融業流程演示用圖)
 const flowSteps = ref([
   {
     id: 1,
