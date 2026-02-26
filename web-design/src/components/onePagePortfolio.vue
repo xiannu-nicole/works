@@ -355,6 +355,7 @@ const swiperBreakpoints = {
   align-items: center;
   opacity: 0;
   transition: opacity 0.4s ease;
+  padding-top: 18px;
 }
 
 .view-btn {

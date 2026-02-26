@@ -8,43 +8,168 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-cards";
 
+import transaction_img_1 from "@/assets/imgs/transaction/1.png";
+import transaction_img_2 from "@/assets/imgs/transaction/2.png";
+import transaction_img_3 from "@/assets/imgs/transaction/3.png";
+import transaction_img_4 from "@/assets/imgs/transaction/4.png";
+import transaction_img_5 from "@/assets/imgs/transaction/5.png";
+import transaction_img_6 from "@/assets/imgs/transaction/6.png";
+import transaction_img_7 from "@/assets/imgs/transaction/7.png";
+
+import indo_3 from "@/assets/imgs/languages/indo-3.png";
+import vn_3 from "@/assets/imgs/languages/vn-3.png";
+import en_3 from "@/assets/imgs/languages/en-3.png";
+
+import coupon_img_1 from "@/assets/imgs/coupon/coupon-1.jpg";
+import coupon_img_2 from "@/assets/imgs/coupon/coupon-2.jpg";
+import coupon_img_3 from "@/assets/imgs/coupon/coupon-3.jpg";
+import coupon_img_4 from "@/assets/imgs/coupon/coupon-4.jpg";
+
+import vendor_img_1 from "@/assets/imgs/vendor/1.png";
+import vendor_img_2 from "@/assets/imgs/vendor/2.png";
+import vendor_img_3 from "@/assets/imgs/vendor/3.png";
+import vendor_img_4 from "@/assets/imgs/vendor/4.png";
+import vendor_img_5 from "@/assets/imgs/vendor/5.png";
+import vendor_img_6 from "@/assets/imgs/vendor/6.png";
+import vendor_img_7 from "@/assets/imgs/vendor/7.png";
+
 const modules = [Navigation, Pagination, EffectCards];
 
-const flowSteps = ref([
+const transaction = ref([
   {
     id: 1,
-    title: "1. 登入首頁",
+    title: "付款",
     desc: "結合生物辨識的快速登入介面，簡潔俐落。",
-    image:
-      "https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?q=80&w=1000&auto=format&fit=crop",
+    image: transaction_img_1,
   },
   {
     id: 2,
-    title: "2. 帳戶總覽",
+    title: "轉帳",
     desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image:
-      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000&auto=format&fit=crop",
+    image: transaction_img_2,
   },
   {
     id: 3,
-    title: "3. 轉帳流程",
+    title: "提領 - step 1",
     desc: "直覺的卡片式選擇常用帳號，減少輸入錯誤。",
-    image:
-      "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?q=80&w=1000&auto=format&fit=crop",
+    image: transaction_img_3,
   },
   {
     id: 4,
-    title: "4. 交易確認",
+    title: "提領 - step 2",
     desc: "完善的二次防呆確認與動態密碼驗證。",
-    image:
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1000&auto=format&fit=crop",
+    image: transaction_img_4,
   },
   {
     id: 5,
-    title: "5. 完成結果",
+    title: "提領 - step 3",
     desc: "提供電子收據分享功能與溫馨的完成動畫。",
-    image:
-      "https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?q=80&w=1000&auto=format&fit=crop",
+    image: transaction_img_5,
+  },
+  {
+    id: 6,
+    title: "提領 - step 4",
+    desc: "提供電子收據分享功能與溫馨的完成動畫。",
+    image: transaction_img_6,
+  },
+  {
+    id: 7,
+    title: "提領 - step 5",
+    desc: "提供電子收據分享功能與溫馨的完成動畫。",
+    image: transaction_img_7,
+  },
+]);
+
+const languages = ref([
+  {
+    id: 7,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: en_3,
+  },
+  {
+    id: 8,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: vn_3,
+  },
+  {
+    id: 9,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: indo_3,
+  },
+]);
+
+const coupons = ref([
+  {
+    id: 1,
+    title: "付款",
+    desc: "結合生物辨識的快速登入介面，簡潔俐落。",
+    image: coupon_img_1,
+  },
+  {
+    id: 2,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: coupon_img_2,
+  },
+  {
+    id: 3,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: coupon_img_3,
+  },
+  {
+    id: 4,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: coupon_img_4,
+  },
+]);
+
+const vendor = ref([
+  {
+    id: 1,
+    title: "付款",
+    desc: "結合生物辨識的快速登入介面，簡潔俐落。",
+    image: vendor_img_1,
+  },
+  {
+    id: 2,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: vendor_img_2,
+  },
+  {
+    id: 3,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: vendor_img_3,
+  },
+  {
+    id: 4,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: vendor_img_4,
+  },
+  {
+    id: 5,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: vendor_img_5,
+  },
+  {
+    id: 6,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: vendor_img_6,
+  },
+  {
+    id: 7,
+    title: "轉帳",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: vendor_img_7,
   },
 ]);
 </script>
@@ -52,38 +177,138 @@ const flowSteps = ref([
 <template>
   <div class="webview-container">
     <div class="header-section">
-      <h2 class="title">金融業 WebView 流程展示</h2>
+      <h2 class="title">多國語系</h2>
       <p class="subtitle">
-        將完整的 App 內嵌網頁操作流程，透過動態卡片輪播呈現，模擬真實操作手感。
+        針對移工設計，與 APP 端協作，提供合作夥伴嵌入帶有多語系功能的 SDK，讓非中文使用者也能享有註冊、付款、轉帳等功能。
       </p>
     </div>
-
-    <div class="swiper-wrapper-container">
-      <swiper
-        :effect="'cards'"
-        :grabCursor="true"
-        :modules="modules"
-        :navigation="true"
-        :pagination="{ clickable: true }"
-        class="flow-swiper"
-      >
-        <swiper-slide
-          v-for="step in flowSteps"
-          :key="step.id"
-          class="flow-slide"
+    <!-- 多語系 -->
+    <div class="row-container">
+      <div class="swiper-wrapper-container">
+        <swiper
+          :effect="'cards'"
+          :grabCursor="true"
+          :modules="modules"
+          :navigation="true"
+          :pagination="{ clickable: true }"
+          class="flow-swiper"
         >
-          <div class="slide-content">
-            <div class="device-mockup">
-              <!-- 後續可以替換成真實的單張流程圖檔png -->
-              <img :src="step.image" :alt="step.title" class="screen-img" />
+          <swiper-slide
+            v-for="item in languages"
+            :key="item.id"
+            class="flow-slide"
+          >
+            <div class="slide-content">
+              <div class="device-mockup">
+                <img :src="item.image" :alt="item.title" class="screen-img" />
+              </div>
+              <div class="item-info">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.desc }}</p>
+              </div>
             </div>
-            <div class="step-info">
-              <h3>{{ step.title }}</h3>
-              <p>{{ step.desc }}</p>
+          </swiper-slide>
+        </swiper>
+      </div>
+      <div class="text-box">
+        <p>根據所選取的語系，顯示對應的語言介面。</p>
+      </div>
+    </div>
+    <!-- 交易 -->
+    <div class="row-container">
+      <div class="swiper-wrapper-container">
+        <swiper
+          :effect="'cards'"
+          :grabCursor="true"
+          :modules="modules"
+          :navigation="true"
+          :pagination="{ clickable: true }"
+          class="flow-swiper"
+        >
+          <swiper-slide
+            v-for="item in transaction"
+            :key="item.id"
+            class="flow-slide"
+          >
+            <div class="slide-content">
+              <div class="device-mockup">
+                <img :src="item.image" :alt="item.title" class="screen-img" />
+              </div>
+              <div class="item-info">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.desc }}</p>
+              </div>
             </div>
-          </div>
-        </swiper-slide>
-      </swiper>
+          </swiper-slide>
+        </swiper>
+      </div>
+      <div class="text-box">
+        <p>交易、轉帳、提領等一系列服務。</p>
+      </div>
+    </div>
+    <!-- 優惠券 -->
+    <div class="row-container">
+      <div class="swiper-wrapper-container">
+        <swiper
+          :effect="'cards'"
+          :grabCursor="true"
+          :modules="modules"
+          :navigation="true"
+          :pagination="{ clickable: true }"
+          class="flow-swiper"
+        >
+          <swiper-slide
+            v-for="item in coupons"
+            :key="item.id"
+            class="flow-slide"
+          >
+            <div class="slide-content">
+              <div class="device-mockup">
+                <img :src="item.image" :alt="item.title" class="screen-img" />
+              </div>
+              <div class="item-info">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.desc }}</p>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+      <div class="text-box">
+        <P></P>
+      </div>
+    </div>
+    <!-- 店家管理 -->
+    <div class="row-container">
+      <div class="swiper-wrapper-container">
+        <swiper
+          :effect="'cards'"
+          :grabCursor="true"
+          :modules="modules"
+          :navigation="true"
+          :pagination="{ clickable: true }"
+          class="flow-swiper"
+        >
+          <swiper-slide
+            v-for="item in vendor"
+            :key="item.id"
+            class="flow-slide"
+          >
+            <div class="slide-content">
+              <div class="device-mockup">
+                <img :src="item.image" :alt="item.title" class="screen-img" />
+              </div>
+              <div class="item-info">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.desc }}</p>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+      <div class="text-box">
+        <P></P>
+      </div>
     </div>
   </div>
 </template>
@@ -122,6 +347,21 @@ const flowSteps = ref([
   }
 }
 
+.row-container {
+  width: 100%;
+  max-width: 798px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  .swiper-wrapper-container {
+    padding: 20px;
+  }
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}
+
 .swiper-wrapper-container {
   width: 100%;
   max-width: 900px;
@@ -131,9 +371,9 @@ const flowSteps = ref([
 }
 
 .flow-swiper {
-  width: 320px; /* 模擬手機寬度呈現 */
+  width: 320px; 
   height: 650px;
-  padding-bottom: 3rem; /* 為圓點留白 */
+  padding: 20px;
 }
 
 .flow-slide {
@@ -166,9 +406,9 @@ const flowSteps = ref([
   }
 }
 
-.step-info {
+.item-info {
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.85);
+  background: #fff;
   border-top: 1px solid rgba(166, 127, 120, 0.2);
   text-align: left;
 
@@ -186,25 +426,28 @@ const flowSteps = ref([
   }
 }
 
-/* 覆寫 Swiper 樣式以配合主題 */
+.swiper-pagination{
+  margin-bottom: -20px;
+}
+
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   width: 40px;
   height: 40px;
+  padding: 8px;
   border-radius: 50%;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
-
-  &::after {
-    font-size: 1.2rem;
-  }
-
+  box-shadow: 0 4px 12px rgba(166, 127, 120, 0.15);
+  font-size: 12px;
   &:hover {
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--accent-color);
+    background: var(--text-primary);
+    color: #fff;
+    border-color: var(--text-primary);
+    box-shadow: 0 0 15px rgba(50, 67, 95, 0.3);
   }
 }
 
