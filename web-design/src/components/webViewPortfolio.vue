@@ -191,7 +191,6 @@ const vendor = ref([
           針對移工設計，提供合作夥伴嵌入帶有多語系功能的SDK。
         </p>
       </div>
-      <!-- 多語系 -->
       <div class="row-container">
         <div class="swiper-wrapper-container">
           <swiper
@@ -225,7 +224,16 @@ const vendor = ref([
           </div>
         </div>
       </div>
-      <!-- 交易 -->
+    </div>
+
+        <!-- 專案 2：個人金融服務 -->
+    <div class="project-section">
+      <div class="project-header">
+        <h3 class="project-title">個人金融服務</h3>
+        <p class="project-desc">
+          針對移工設計，提供合作夥伴嵌入帶有多語系功能的SDK。
+        </p>
+      </div>
       <div class="row-container reverse">
         <div class="swiper-wrapper-container">
           <swiper
@@ -262,7 +270,7 @@ const vendor = ref([
       </div>
     </div>
 
-    <!-- 專案 2：優惠券 -->
+    <!-- 專案 3：優惠券 -->
     <div class="project-section">
       <div class="project-header">
         <h3 class="project-title">優惠券服務</h3>
@@ -302,7 +310,7 @@ const vendor = ref([
       </div>
     </div>
 
-    <!-- 專案 3：店家管理 -->
+    <!-- 專案 4：店家管理 -->
     <div class="project-section">
       <div class="project-header">
         <h3 class="project-title">店家管理後台</h3>
