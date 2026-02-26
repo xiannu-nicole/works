@@ -176,138 +176,160 @@ const vendor = ref([
 
 <template>
   <div class="webview-container">
-    <div class="header-section">
-      <h2 class="title">多國語系</h2>
-      <p class="subtitle">
-        針對移工設計，與 APP 端協作，提供合作夥伴嵌入帶有多語系功能的 SDK，讓非中文使用者也能享有註冊、付款、轉帳等功能。
-      </p>
-    </div>
-    <!-- 多語系 -->
-    <div class="row-container">
-      <div class="swiper-wrapper-container">
-        <swiper
-          :effect="'cards'"
-          :grabCursor="true"
-          :modules="modules"
-          :navigation="true"
-          :pagination="{ clickable: true }"
-          class="flow-swiper"
-        >
-          <swiper-slide
-            v-for="item in languages"
-            :key="item.id"
-            class="flow-slide"
+    <!-- 專案 1：多國語系 -->
+    <div class="project-section">
+      <div class="header-section">
+        <h2 class="title">多國語系</h2>
+        <p class="subtitle">
+          針對移工設計，與 APP 端協作，提供合作夥伴嵌入帶有多語系功能的
+          SDK，讓非中文使用者也能享有註冊、付款、轉帳等功能。
+        </p>
+      </div>
+      <!-- 多語系 -->
+      <div class="row-container">
+        <div class="swiper-wrapper-container">
+          <swiper
+            :effect="'cards'"
+            :grabCursor="true"
+            :modules="modules"
+            :navigation="true"
+            :pagination="{ clickable: true }"
+            class="flow-swiper"
           >
-            <div class="slide-content">
-              <div class="device-mockup">
-                <img :src="item.image" :alt="item.title" class="screen-img" />
+            <swiper-slide
+              v-for="item in languages"
+              :key="item.id"
+              class="flow-slide"
+            >
+              <div class="slide-content">
+                <div class="device-mockup">
+                  <img :src="item.image" :alt="item.title" class="screen-img" />
+                </div>
+                <div class="item-info">
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.desc }}</p>
+                </div>
               </div>
-              <div class="item-info">
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.desc }}</p>
-              </div>
-            </div>
-          </swiper-slide>
-        </swiper>
+            </swiper-slide>
+          </swiper>
+        </div>
+        <div class="text-box">
+          <p>根據所選取的語系，顯示對應的語言介面。</p>
+        </div>
       </div>
-      <div class="text-box">
-        <p>根據所選取的語系，顯示對應的語言介面。</p>
-      </div>
-    </div>
-    <!-- 交易 -->
-    <div class="row-container">
-      <div class="swiper-wrapper-container">
-        <swiper
-          :effect="'cards'"
-          :grabCursor="true"
-          :modules="modules"
-          :navigation="true"
-          :pagination="{ clickable: true }"
-          class="flow-swiper"
-        >
-          <swiper-slide
-            v-for="item in transaction"
-            :key="item.id"
-            class="flow-slide"
+      <!-- 交易 -->
+      <div class="row-container reverse">
+        <div class="swiper-wrapper-container">
+          <swiper
+            :effect="'cards'"
+            :grabCursor="true"
+            :modules="modules"
+            :navigation="true"
+            :pagination="{ clickable: true }"
+            class="flow-swiper"
           >
-            <div class="slide-content">
-              <div class="device-mockup">
-                <img :src="item.image" :alt="item.title" class="screen-img" />
+            <swiper-slide
+              v-for="item in transaction"
+              :key="item.id"
+              class="flow-slide"
+            >
+              <div class="slide-content">
+                <div class="device-mockup">
+                  <img :src="item.image" :alt="item.title" class="screen-img" />
+                </div>
+                <div class="item-info">
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.desc }}</p>
+                </div>
               </div>
-              <div class="item-info">
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.desc }}</p>
-              </div>
-            </div>
-          </swiper-slide>
-        </swiper>
-      </div>
-      <div class="text-box">
-        <p>交易、轉帳、提領等一系列服務。</p>
-      </div>
-    </div>
-    <!-- 優惠券 -->
-    <div class="row-container">
-      <div class="swiper-wrapper-container">
-        <swiper
-          :effect="'cards'"
-          :grabCursor="true"
-          :modules="modules"
-          :navigation="true"
-          :pagination="{ clickable: true }"
-          class="flow-swiper"
-        >
-          <swiper-slide
-            v-for="item in coupons"
-            :key="item.id"
-            class="flow-slide"
-          >
-            <div class="slide-content">
-              <div class="device-mockup">
-                <img :src="item.image" :alt="item.title" class="screen-img" />
-              </div>
-              <div class="item-info">
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.desc }}</p>
-              </div>
-            </div>
-          </swiper-slide>
-        </swiper>
-      </div>
-      <div class="text-box">
-        <P></P>
+            </swiper-slide>
+          </swiper>
+        </div>
+        <div class="text-box">
+          <p>交易、轉帳、提領等一系列服務。</p>
+        </div>
       </div>
     </div>
-    <!-- 店家管理 -->
-    <div class="row-container">
-      <div class="swiper-wrapper-container">
-        <swiper
-          :effect="'cards'"
-          :grabCursor="true"
-          :modules="modules"
-          :navigation="true"
-          :pagination="{ clickable: true }"
-          class="flow-swiper"
-        >
-          <swiper-slide
-            v-for="item in vendor"
-            :key="item.id"
-            class="flow-slide"
-          >
-            <div class="slide-content">
-              <div class="device-mockup">
-                <img :src="item.image" :alt="item.title" class="screen-img" />
-              </div>
-              <div class="item-info">
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.desc }}</p>
-              </div>
-            </div>
-          </swiper-slide>
-        </swiper>
+
+    <!-- 專案 2：優惠券 -->
+    <div class="project-section">
+      <div class="header-section">
+        <h2 class="title">優惠券服務</h2>
+        <p class="subtitle">
+          完整的優惠券全流程體驗，包含領取、使用與狀態檢視。
+        </p>
       </div>
-      <div class="text-box">
-        <P></P>
+      <div class="row-container">
+        <div class="swiper-wrapper-container">
+          <swiper
+            :effect="'cards'"
+            :grabCursor="true"
+            :modules="modules"
+            :navigation="true"
+            :pagination="{ clickable: true }"
+            class="flow-swiper"
+          >
+            <swiper-slide
+              v-for="item in coupons"
+              :key="item.id"
+              class="flow-slide"
+            >
+              <div class="slide-content">
+                <div class="device-mockup">
+                  <img :src="item.image" :alt="item.title" class="screen-img" />
+                </div>
+                <div class="item-info">
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.desc }}</p>
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper>
+        </div>
+        <div class="text-box">
+          <p>優惠券領取與使用流程，直觀的介面設計。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 專案 3：店家管理 -->
+    <div class="project-section">
+      <div class="header-section">
+        <h2 class="title">店家管理後台</h2>
+        <p class="subtitle">
+          為合作店家打造的專屬後台，輕鬆掌握訂單與營業數據。
+        </p>
+      </div>
+      <div class="row-container reverse">
+        <div class="swiper-wrapper-container">
+          <swiper
+            :effect="'cards'"
+            :grabCursor="true"
+            :modules="modules"
+            :navigation="true"
+            :pagination="{ clickable: true }"
+            class="flow-swiper"
+          >
+            <swiper-slide
+              v-for="item in vendor"
+              :key="item.id"
+              class="flow-slide"
+            >
+              <div class="slide-content">
+                <div class="device-mockup">
+                  <img :src="item.image" :alt="item.title" class="screen-img" />
+                </div>
+                <div class="item-info">
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.desc }}</p>
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper>
+        </div>
+        <div class="text-box">
+          <p>店家訂單與營收管理介面，快速查詢交易紀錄。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -320,6 +342,19 @@ const vendor = ref([
   gap: 2rem;
   width: 100%;
   align-items: center;
+}
+
+.project-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 6rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .header-section {
@@ -357,7 +392,7 @@ const vendor = ref([
   .swiper-wrapper-container {
     padding: 20px;
   }
-  &:nth-child(even) {
+  &.reverse {
     flex-direction: row-reverse;
   }
 }
@@ -371,7 +406,7 @@ const vendor = ref([
 }
 
 .flow-swiper {
-  width: 320px; 
+  width: 320px;
   height: 650px;
   padding: 20px;
 }
@@ -426,7 +461,7 @@ const vendor = ref([
   }
 }
 
-.swiper-pagination{
+.swiper-pagination {
   margin-bottom: -20px;
 }
 
@@ -462,5 +497,15 @@ const vendor = ref([
   width: 20px;
   border-radius: 4px;
   transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .row-container {
+    flex-direction: column;
+    gap: 2rem;
+    &.reverse {
+      flex-direction: column;
+    }
+  }
 }
 </style>

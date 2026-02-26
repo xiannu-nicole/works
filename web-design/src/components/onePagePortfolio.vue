@@ -98,7 +98,7 @@ const portfolioCategories = ref([
     projects: [
       {
         id: "rose-beauty",
-        title: "Rose顏究所美學",
+        title: "Rose 顏究所美學",
         image:
           "https://lightandshadow.com.tw/rose-beauty/public/image/banner/img-01.jpg",
         url: "https://lightandshadow.com.tw/rose-beauty/",

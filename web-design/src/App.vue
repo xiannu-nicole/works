@@ -2,26 +2,51 @@
 import { ref } from "vue";
 import onePagePortfolio from "./components/onePagePortfolio.vue";
 import webViewPortfolio from "./components/webViewPortfolio.vue";
+import webPagePortfolio from "./components/webPagePortfolio.vue";
 
-const activeTab = ref("onePagePortfolio"); // 'onePagePortfolio' or 'webViewPortfolio'
+import barIcon from "@/assets/imgs/icon/bar.svg";
+import closeIcon from "@/assets/imgs/icon/close.svg";
+
+const activeTab = ref("onePagePortfolio"); // 'onePagePortfolio' or 'pluspay'
+const activePluspayTab = ref("webView"); // 'webView' or 'webPage'
+const isMobileMenuOpen = ref(false);
+
+const selectTab = (tab) => {
+  activeTab.value = tab;
+  isMobileMenuOpen.value = false;
+};
 </script>
 
 <template>
   <div class="app-container">
     <header class="glass-header">
-      <h1 class="logo">Works.</h1>
-      <nav class="nav-tabs">
+      <h1 class="logo">Nicole's Works</h1>
+      <button
+        class="hamburger"
+        @click="isMobileMenuOpen = !isMobileMenuOpen"
+        aria-label="Menu"
+      >
+        <img
+          v-if="!isMobileMenuOpen"
+          :src="barIcon"
+          alt="Open Menu"
+          class="menu-icon"
+        />
+        <img v-else :src="closeIcon" alt="Close Menu" class="menu-icon" />
+      </button>
+
+      <nav class="nav-tabs" :class="{ 'is-open': isMobileMenuOpen }">
         <button
           :class="['tab-btn', { active: activeTab === 'onePagePortfolio' }]"
-          @click="activeTab = 'onePagePortfolio'"
+          @click="selectTab('onePagePortfolio')"
         >
-          一頁式網頁作品
+          行銷一頁式專案
         </button>
         <button
-          :class="['tab-btn', { active: activeTab === 'webViewPortfolio' }]"
-          @click="activeTab = 'webViewPortfolio'"
+          :class="['tab-btn', { active: activeTab === 'pluspay' }]"
+          @click="selectTab('pluspay')"
         >
-          金融業 WebView 流程
+          全盈支付
         </button>
       </nav>
     </header>
@@ -29,7 +54,35 @@ const activeTab = ref("onePagePortfolio"); // 'onePagePortfolio' or 'webViewPort
     <main class="main-content">
       <transition name="fade" mode="out-in">
         <onePagePortfolio v-if="activeTab === 'onePagePortfolio'" />
-        <webViewPortfolio v-else-if="activeTab === 'webViewPortfolio'" />
+        <div v-else-if="activeTab === 'pluspay'" class="pluspay-container">
+          <div class="sub-tabs-container">
+            <nav class="sub-tabs" :data-active="activePluspayTab">
+              <button
+                :class="[
+                  'sub-tab-btn',
+                  { active: activePluspayTab === 'webView' },
+                ]"
+                @click="activePluspayTab = 'webView'"
+              >
+                WebView 流程
+              </button>
+              <button
+                :class="[
+                  'sub-tab-btn',
+                  { active: activePluspayTab === 'webPage' },
+                ]"
+                @click="activePluspayTab = 'webPage'"
+              >
+                網頁專案
+              </button>
+            </nav>
+          </div>
+
+          <transition name="fade" mode="out-in">
+            <webViewPortfolio v-if="activePluspayTab === 'webView'" />
+            <webPagePortfolio v-else-if="activePluspayTab === 'webPage'" />
+          </transition>
+        </div>
       </transition>
     </main>
   </div>
@@ -133,6 +186,151 @@ body {
     &::after {
       width: 100%;
     }
+  }
+}
+
+.hamburger {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+  color: var(--text-primary);
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  .menu-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 100vw;
+    overflow: hidden;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .nav-tabs {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(225, 220, 217, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1.5rem 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+    box-shadow: 0 10px 20px rgba(166, 127, 120, 0.15);
+    gap: 1rem;
+
+    &.is-open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .tab-btn {
+    padding: 0.5rem 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+
+    &::after {
+      bottom: 0px;
+      width: 0;
+      height: 2px;
+      left: 50%;
+    }
+
+    &.active::after {
+      width: 60px;
+    }
+  }
+}
+
+/* Sub-tabs for Pluspay section */
+.pluspay-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sub-tabs-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.sub-tabs {
+  position: relative;
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.3rem;
+  border-radius: 50px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 15px rgba(166, 127, 120, 0.1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0.3rem;
+    left: 0.3rem;
+    height: calc(100% - 0.6rem);
+    width: calc(50% - 0.3rem);
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(166, 127, 120, 0.15);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+  }
+
+  &[data-active="webPage"]::before {
+    transform: translateX(100%);
+  }
+}
+
+.sub-tab-btn {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  width: 50%;
+  text-align: center;
+
+  &:hover {
+    color: var(--text-primary);
+  }
+
+  &.active {
+    color: var(--accent-color);
   }
 }
 
