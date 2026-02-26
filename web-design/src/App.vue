@@ -64,7 +64,7 @@ const selectTab = (tab) => {
                 ]"
                 @click="activePluspayTab = 'webView'"
               >
-                WebView 流程
+                WebView
               </button>
               <button
                 :class="[
@@ -92,10 +92,10 @@ const selectTab = (tab) => {
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap");
 
 :root {
-  --bg-color: #e1dcd9; /* Mushroom */
-  --text-primary: #32435f; /* Gunmetal */
-  --text-secondary: #8f8681; /* Elephant */
-  --accent-color: #a67f78; /* Thatch */
+  --bg-color: #e1dcd9; 
+  --text-primary: #32435f; 
+  --text-secondary: #8f8681; 
+  --accent-color: #a67f78;
   --glass-bg: rgba(225, 220, 217, 0.6);
   --glass-border: rgba(166, 127, 120, 0.2);
 }

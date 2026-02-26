@@ -6,10 +6,10 @@ import applyImg_s from "@/assets/imgs/apply/1-s.png";
 <template>
   <div class="webpage-container fade-in">
     <div class="project-section">
-      <div class="header-section">
+      <!-- <div class="header-section">
         <h2 class="title">一般網頁專案</h2>
-        <p class="subtitle">提供各類線上系統服務與形象網頁建置。</p>
-      </div>
+        <p class="subtitle">提供線上系統服務與形象網頁建置。</p>
+      </div> -->
 
       <!-- 專案 1：特約商店線上申辦 -->
       <div class="project-item">

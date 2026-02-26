@@ -166,8 +166,8 @@ const swiperBreakpoints = {
 
 <template>
   <div class="portfolio-container">
-    <div class="page-header">
-      <h2 class="main-title">一頁式網頁設計集</h2>
+    <div class="header-section">
+      <h2 class="title">一頁式網頁設計集</h2>
       <p class="subtitle">開發、切版與設計</p>
     </div>
 
@@ -176,9 +176,9 @@ const swiperBreakpoints = {
       :key="index"
       class="category-row"
     >
-      <div class="row-header">
-        <h3 class="category-title">{{ category.categoryName }}</h3>
-        <span class="category-subtitle">{{ category.subTitle }}</span>
+      <div class="project-header">
+        <h3 class="project-title">{{ category.categoryName }}</h3>
+        <p class="project-desc">{{ category.subTitle }}</p>
       </div>
 
       <div class="swiper-wrapper-container">
@@ -230,12 +230,12 @@ const swiperBreakpoints = {
   padding-bottom: 2rem;
 }
 
-.page-header {
+.header-section {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
 
-  .main-title {
+  .title {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -249,7 +249,7 @@ const swiperBreakpoints = {
     -webkit-text-fill-color: transparent;
   }
 
-  .main-desc {
+  .subtitle {
     color: var(--text-secondary);
     font-size: 1.1rem;
     line-height: 1.6;
@@ -263,26 +263,22 @@ const swiperBreakpoints = {
   width: 100%;
 }
 
-.row-header {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  padding-left: 0.5rem;
-  border-left: 4px solid var(--accent-color);
+.project-header {
+  text-align: center;
+  margin-bottom: 1rem;
 
-  .category-title {
-    font-size: 1.6rem;
-    font-weight: 600;
+  .project-title {
+    font-size: 1.8rem;
     color: var(--text-primary);
+    margin-bottom: 0.8rem;
   }
 
-  .category-subtitle {
-    font-size: 0.95rem;
+  .project-desc {
     color: var(--text-secondary);
-    background: rgba(166, 127, 120, 0.08);
-    padding: 0.2rem 0.8rem;
-    border-radius: 20px;
-    border: 1px solid var(--glass-border);
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
   }
 }
 
@@ -428,16 +424,6 @@ const swiperBreakpoints = {
 
 /* 響應式調整 */
 @media (max-width: 768px) {
-  .row-header {
-    flex-direction: column;
-    gap: 0.5rem;
-    border-left: 3px solid var(--accent-color);
-
-    .category-title {
-      font-size: 1.3rem;
-    }
-  }
-
   :deep(.swiper-button-next),
   :deep(.swiper-button-prev) {
     display: none; /* 手機版隱藏箭頭，主要靠滑動 */

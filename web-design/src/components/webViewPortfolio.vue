@@ -176,13 +176,19 @@ const vendor = ref([
 
 <template>
   <div class="webview-container">
+    <div class="header-section">
+      <h2 class="title">WebView 流程專案</h2>
+      <p class="subtitle">
+        與 APP 端合作，負責 API 串接及合作夥伴 SDK 的整合與資料對接。
+      </p>
+    </div>
+
     <!-- 專案 1：多國語系 -->
     <div class="project-section">
-      <div class="header-section">
-        <h2 class="title">多國語系</h2>
-        <p class="subtitle">
-          針對移工設計，與 APP 端協作，提供合作夥伴嵌入帶有多語系功能的
-          SDK，讓非中文使用者也能享有註冊、付款、轉帳等功能。
+      <div class="project-header">
+        <h3 class="project-title">多國語系</h3>
+        <p class="project-desc">
+          針對移工設計，提供合作夥伴嵌入帶有多語系功能的SDK。
         </p>
       </div>
       <!-- 多語系 -->
@@ -205,16 +211,18 @@ const vendor = ref([
                 <div class="device-mockup">
                   <img :src="item.image" :alt="item.title" class="screen-img" />
                 </div>
-                <div class="item-info">
-                  <h3>{{ item.title }}</h3>
-                  <p>{{ item.desc }}</p>
-                </div>
               </div>
             </swiper-slide>
           </swiper>
         </div>
         <div class="text-box">
           <p>根據所選取的語系，顯示對應的語言介面。</p>
+          <div class="tags">
+            <span>中文</span>
+            <span>英文</span>
+            <span>印尼文</span>
+            <span>越南文</span>
+          </div>
         </div>
       </div>
       <!-- 交易 -->
@@ -237,27 +245,28 @@ const vendor = ref([
                 <div class="device-mockup">
                   <img :src="item.image" :alt="item.title" class="screen-img" />
                 </div>
-                <div class="item-info">
-                  <h3>{{ item.title }}</h3>
-                  <p>{{ item.desc }}</p>
-                </div>
               </div>
             </swiper-slide>
           </swiper>
         </div>
         <div class="text-box">
-          <p>交易、轉帳、提領等一系列服務。</p>
+          <p>多元化的交易功能，協助移工夥伴更便捷地完成各種交易。</p>
+          <div class="tags">
+            <span>付款</span>
+            <span>轉帳</span>
+            <span>商業/個人收款</span>
+            <span>儲值</span>
+            <span>提領</span>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- 專案 2：優惠券 -->
     <div class="project-section">
-      <div class="header-section">
-        <h2 class="title">優惠券服務</h2>
-        <p class="subtitle">
-          完整的優惠券全流程體驗，包含領取、使用與狀態檢視。
-        </p>
+      <div class="project-header">
+        <h3 class="project-title">優惠券服務</h3>
+        <p class="project-desc">完整的優惠券流程，包含使用與狀態檢視。</p>
       </div>
       <div class="row-container">
         <div class="swiper-wrapper-container">
@@ -278,27 +287,26 @@ const vendor = ref([
                 <div class="device-mockup">
                   <img :src="item.image" :alt="item.title" class="screen-img" />
                 </div>
-                <div class="item-info">
-                  <h3>{{ item.title }}</h3>
-                  <p>{{ item.desc }}</p>
-                </div>
               </div>
             </swiper-slide>
           </swiper>
         </div>
         <div class="text-box">
-          <p>優惠券領取與使用流程，直觀的介面設計。</p>
+          <p>直觀的介面設計，讓用戶輕鬆領取優惠券，並隨時檢視使用狀態。</p>
+          <div class="tags">
+            <span>狀態檢視</span>
+            <span>核銷/付款</span>
+            <span>活動資訊</span>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- 專案 3：店家管理 -->
     <div class="project-section">
-      <div class="header-section">
-        <h2 class="title">店家管理後台</h2>
-        <p class="subtitle">
-          為合作店家打造的專屬後台，輕鬆掌握訂單與營業數據。
-        </p>
+      <div class="project-header">
+        <h3 class="project-title">店家管理後台</h3>
+        <p class="project-desc">為合作店家打造的專屬後台。</p>
       </div>
       <div class="row-container reverse">
         <div class="swiper-wrapper-container">
@@ -319,16 +327,20 @@ const vendor = ref([
                 <div class="device-mockup">
                   <img :src="item.image" :alt="item.title" class="screen-img" />
                 </div>
-                <div class="item-info">
-                  <h3>{{ item.title }}</h3>
-                  <p>{{ item.desc }}</p>
-                </div>
               </div>
             </swiper-slide>
           </swiper>
         </div>
         <div class="text-box">
-          <p>店家訂單與營收管理介面，快速查詢交易紀錄。</p>
+          <p>
+            專為合作店家設計的手機版後台，店家可快速查詢交易紀錄並即時掌握入帳金額。
+          </p>
+          <div class="tags">
+            <span>收款掃描</span>
+            <span>入帳通知</span>
+            <span>交易紀錄</span>
+            <span>退款處理</span>
+          </div>
         </div>
       </div>
     </div>
@@ -360,6 +372,7 @@ const vendor = ref([
 .header-section {
   text-align: center;
   max-width: 800px;
+  margin-bottom: 2rem;
 
   .title {
     font-size: 2.5rem;
@@ -382,18 +395,53 @@ const vendor = ref([
   }
 }
 
+.project-header {
+  text-align: center;
+  margin-bottom: 1rem;
+
+  .project-title {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+  }
+
+  .project-desc {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
 .row-container {
   width: 100%;
-  max-width: 798px;
+  max-width: 850px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10rem;
-  .swiper-wrapper-container {
-    padding: 20px;
+  gap: 5rem;
+  & > div {
+    flex: 1;
   }
   &.reverse {
     flex-direction: row-reverse;
+  }
+  .swiper-wrapper-container {
+    padding: 20px;
+  }
+  .text-box .tags {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    margin-top: 20px;
+    span {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background-color: #ffffff45;
+      color: var(--text-secondary);
+    }
   }
 }
 
@@ -409,6 +457,7 @@ const vendor = ref([
   width: 320px;
   height: 650px;
   padding: 20px;
+  padding-bottom: 40px;
 }
 
 .flow-slide {
@@ -439,30 +488,6 @@ const vendor = ref([
     object-fit: cover;
     object-position: top;
   }
-}
-
-.item-info {
-  padding: 1.5rem;
-  background: #fff;
-  border-top: 1px solid rgba(166, 127, 120, 0.2);
-  text-align: left;
-
-  h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
-}
-
-.swiper-pagination {
-  margin-bottom: -20px;
 }
 
 :deep(.swiper-button-next),
