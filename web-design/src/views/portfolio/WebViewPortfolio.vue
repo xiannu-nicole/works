@@ -1,177 +1,167 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, EffectCards } from "swiper/modules";
+import { img } from "@/assets/js/img";
+import type { FlowItem } from "@/types/portfolio";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-cards";
 
-import transaction_img_1 from "@/assets/imgs/transaction/1.png";
-import transaction_img_2 from "@/assets/imgs/transaction/2.png";
-import transaction_img_3 from "@/assets/imgs/transaction/3.png";
-import transaction_img_4 from "@/assets/imgs/transaction/4.png";
-import transaction_img_5 from "@/assets/imgs/transaction/5.png";
-import transaction_img_6 from "@/assets/imgs/transaction/6.png";
-import transaction_img_7 from "@/assets/imgs/transaction/7.png";
+// 1. defineProps
 
-import indo_3 from "@/assets/imgs/languages/indo-3.png";
-import vn_3 from "@/assets/imgs/languages/vn-3.png";
-import en_3 from "@/assets/imgs/languages/en-3.png";
+// 2. defineEmits
 
-import coupon_img_1 from "@/assets/imgs/coupon/coupon-1.jpg";
-import coupon_img_2 from "@/assets/imgs/coupon/coupon-2.jpg";
-import coupon_img_3 from "@/assets/imgs/coupon/coupon-3.jpg";
-import coupon_img_4 from "@/assets/imgs/coupon/coupon-4.jpg";
-
-import vendor_img_1 from "@/assets/imgs/vendor/1.png";
-import vendor_img_2 from "@/assets/imgs/vendor/2.png";
-import vendor_img_3 from "@/assets/imgs/vendor/3.png";
-import vendor_img_4 from "@/assets/imgs/vendor/4.png";
-import vendor_img_5 from "@/assets/imgs/vendor/5.png";
-import vendor_img_6 from "@/assets/imgs/vendor/6.png";
-import vendor_img_7 from "@/assets/imgs/vendor/7.png";
-
+// 3. ref / reactive (狀態宣告)
 const modules = [Navigation, Pagination, EffectCards];
 
-const transaction = ref([
+const transaction = ref<FlowItem[]>([
   {
     id: 1,
     title: "付款",
     desc: "結合生物辨識的快速登入介面，簡潔俐落。",
-    image: transaction_img_1,
+    image: img.transaction1,
   },
   {
     id: 2,
     title: "轉帳",
     desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: transaction_img_2,
+    image: img.transaction2,
   },
   {
     id: 3,
     title: "提領 - step 1",
     desc: "直覺的卡片式選擇常用帳號，減少輸入錯誤。",
-    image: transaction_img_3,
+    image: img.transaction3,
   },
   {
     id: 4,
     title: "提領 - step 2",
     desc: "完善的二次防呆確認與動態密碼驗證。",
-    image: transaction_img_4,
+    image: img.transaction4,
   },
   {
     id: 5,
     title: "提領 - step 3",
     desc: "提供電子收據分享功能與溫馨的完成動畫。",
-    image: transaction_img_5,
+    image: img.transaction5,
   },
   {
     id: 6,
     title: "提領 - step 4",
     desc: "提供電子收據分享功能與溫馨的完成動畫。",
-    image: transaction_img_6,
+    image: img.transaction6,
   },
   {
     id: 7,
     title: "提領 - step 5",
     desc: "提供電子收據分享功能與溫馨的完成動畫。",
-    image: transaction_img_7,
+    image: img.transaction7,
   },
 ]);
 
-const languages = ref([
-  {
-    id: 7,
-    title: "轉帳",
-    desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: en_3,
-  },
-  {
-    id: 8,
-    title: "轉帳",
-    desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: vn_3,
-  },
-  {
-    id: 9,
-    title: "轉帳",
-    desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: indo_3,
-  },
-]);
-
-const coupons = ref([
+const languages = ref<FlowItem[]>([
   {
     id: 1,
-    title: "付款",
-    desc: "結合生物辨識的快速登入介面，簡潔俐落。",
-    image: coupon_img_1,
+    title: "英文介面",
+    desc: "英文介面切換與資訊呈現。",
+    image: img.langEn3,
   },
   {
     id: 2,
-    title: "轉帳",
-    desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: coupon_img_2,
+    title: "越南文介面",
+    desc: "越南文介面切換與資訊呈現。",
+    image: img.langVn3,
   },
   {
     id: 3,
-    title: "轉帳",
-    desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: coupon_img_3,
-  },
-  {
-    id: 4,
-    title: "轉帳",
-    desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: coupon_img_4,
+    title: "印尼文介面",
+    desc: "印尼文介面切換與資訊呈現。",
+    image: img.langIndo3,
   },
 ]);
 
-const vendor = ref([
+const coupons = ref<FlowItem[]>([
   {
     id: 1,
-    title: "付款",
+    title: "優惠券領取",
     desc: "結合生物辨識的快速登入介面，簡潔俐落。",
-    image: vendor_img_1,
+    image: img.couponImg1,
   },
   {
     id: 2,
-    title: "轉帳",
+    title: "優惠券列表",
     desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: vendor_img_2,
+    image: img.couponImg2,
   },
   {
     id: 3,
-    title: "轉帳",
+    title: "優惠券核銷",
     desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: vendor_img_3,
+    image: img.couponImg3,
   },
   {
     id: 4,
-    title: "轉帳",
+    title: "優惠券細節",
     desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: vendor_img_4,
+    image: img.couponImg4,
+  },
+]);
+
+const vendor = ref<FlowItem[]>([
+  {
+    id: 1,
+    title: "店家收款",
+    desc: "結合生物辨識的快速登入介面，簡潔俐落。",
+    image: img.vendor1,
+  },
+  {
+    id: 2,
+    title: "交易紀錄",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: img.vendor2,
+  },
+  {
+    id: 3,
+    title: "入帳通知",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: img.vendor3,
+  },
+  {
+    id: 4,
+    title: "退款處理",
+    desc: "清晰呈現資產圓餅圖與近期交易明細。",
+    image: img.vendor4,
   },
   {
     id: 5,
-    title: "轉帳",
+    title: "店家統計",
     desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: vendor_img_5,
+    image: img.vendor5,
   },
   {
     id: 6,
-    title: "轉帳",
+    title: "報表檢視",
     desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: vendor_img_6,
+    image: img.vendor6,
   },
   {
     id: 7,
-    title: "轉帳",
+    title: "系統設定",
     desc: "清晰呈現資產圓餅圖與近期交易明細。",
-    image: vendor_img_7,
+    image: img.vendor7,
   },
 ]);
+
+// 4. computed
+
+// 5. watch
+
+// 6. Functions
+
+// 7. Lifecycle Hooks
 </script>
 
 <template>
@@ -188,14 +178,14 @@ const vendor = ref([
       <div class="project-header">
         <h3 class="project-title">多國語系</h3>
         <p class="project-desc">
-          針對移工設計，提供合作夥伴嵌入帶有多語系功能的SDK。
+          針對移工設計，提供合作夥伴嵌入帶有多語系功能的 SDK。
         </p>
       </div>
       <div class="row-container">
         <div class="swiper-wrapper-container">
           <swiper
             :effect="'cards'"
-            :grabCursor="true"
+            :grab-cursor="true"
             :modules="modules"
             :navigation="true"
             :pagination="{ clickable: true }"
@@ -226,19 +216,19 @@ const vendor = ref([
       </div>
     </div>
 
-        <!-- 專案 2：個人金融服務 -->
+    <!-- 專案 2：個人金融服務 -->
     <div class="project-section">
       <div class="project-header">
         <h3 class="project-title">個人金融服務</h3>
         <p class="project-desc">
-          針對移工設計，提供合作夥伴嵌入帶有多語系功能的SDK。
+          針對移工設計，提供合作夥伴嵌入帶有多語系功能的 SDK。
         </p>
       </div>
       <div class="row-container reverse">
         <div class="swiper-wrapper-container">
           <swiper
             :effect="'cards'"
-            :grabCursor="true"
+            :grab-cursor="true"
             :modules="modules"
             :navigation="true"
             :pagination="{ clickable: true }"
@@ -280,7 +270,7 @@ const vendor = ref([
         <div class="swiper-wrapper-container">
           <swiper
             :effect="'cards'"
-            :grabCursor="true"
+            :grab-cursor="true"
             :modules="modules"
             :navigation="true"
             :pagination="{ clickable: true }"
@@ -320,7 +310,7 @@ const vendor = ref([
         <div class="swiper-wrapper-container">
           <swiper
             :effect="'cards'"
-            :grabCursor="true"
+            :grab-cursor="true"
             :modules="modules"
             :navigation="true"
             :pagination="{ clickable: true }"
@@ -359,7 +349,7 @@ const vendor = ref([
 .webview-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: $spacing-32;
   width: 100%;
   align-items: center;
 }
@@ -367,10 +357,10 @@ const vendor = ref([
 .project-section {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: $spacing-48;
   width: 100%;
   align-items: center;
-  margin-bottom: 6rem;
+  margin-bottom: $spacing-120;
 
   &:last-child {
     margin-bottom: 0;
@@ -380,16 +370,16 @@ const vendor = ref([
 .header-section {
   text-align: center;
   max-width: 800px;
-  margin-bottom: 2rem;
+  margin-bottom: $spacing-32;
 
   .title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+    font-size: $fs-xxl;
+    font-weight: $fw-bold;
+    margin-bottom: $spacing-16;
     background: linear-gradient(
       135deg,
-      var(--text-primary) 0%,
-      var(--accent-color) 100%
+      $color-text-primary 0%,
+      $color-accent 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -397,26 +387,26 @@ const vendor = ref([
   }
 
   .subtitle {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    line-height: 1.6;
+    color: $color-text-secondary;
+    font-size: $fs-h3;
+    line-height: $line-height-loose;
   }
 }
 
 .project-header {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: $spacing-16;
 
   .project-title {
-    font-size: 1.8rem;
-    color: var(--text-primary);
-    margin-bottom: 0.8rem;
+    font-size: $fs-h2;
+    color: $color-text-primary;
+    margin-bottom: $spacing-12;
   }
 
   .project-desc {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.5;
+    color: $color-text-secondary;
+    font-size: $fs-base;
+    line-height: $line-height-base;
     max-width: 600px;
     margin: 0 auto;
   }
@@ -428,7 +418,7 @@ const vendor = ref([
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
+  gap: $spacing-48;
   & > div {
     flex: 1;
   }
@@ -436,19 +426,19 @@ const vendor = ref([
     flex-direction: row-reverse;
   }
   .swiper-wrapper-container {
-    padding: 20px;
+    padding: $spacing-20;
   }
   .text-box .tags {
     display: flex;
-    gap: 8px;
-    font-size: 14px;
-    margin-top: 20px;
+    gap: $spacing-8;
+    font-size: $fs-base;
+    margin-top: $spacing-20;
     span {
       display: inline-block;
-      padding: 4px 8px;
-      border-radius: 4px;
-      background-color: #ffffff45;
-      color: var(--text-secondary);
+      padding: $spacing-4 $spacing-8;
+      border-radius: $radius-s;
+      background-color: rgba(255, 255, 255, 0.45);
+      color: $color-text-secondary;
     }
   }
 }
@@ -456,7 +446,7 @@ const vendor = ref([
 .swiper-wrapper-container {
   width: 100%;
   max-width: 900px;
-  padding: 2rem 0;
+  padding: $spacing-32 0;
   display: flex;
   justify-content: center;
 }
@@ -464,18 +454,18 @@ const vendor = ref([
 .flow-swiper {
   width: 320px;
   height: 650px;
-  padding: 20px;
-  padding-bottom: 40px;
+  padding: $spacing-20;
+  padding-bottom: $spacing-40;
 }
 
 .flow-slide {
-  border-radius: 24px;
-  background-color: var(--bg-color);
-  box-shadow: 0 15px 35px rgba(166, 127, 120, 0.25);
+  border-radius: $radius-l;
+  background-color: $color-bg;
+  box-shadow: $shadow-l;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid var(--glass-border);
+  border: 1px solid $color-border;
 }
 
 .slide-content {
@@ -486,7 +476,7 @@ const vendor = ref([
 
 .device-mockup {
   flex: 1;
-  background: var(--bg-color);
+  background: $color-bg;
   position: relative;
   overflow: hidden;
 
@@ -500,42 +490,42 @@ const vendor = ref([
 
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
-  color: var(--text-primary);
+  color: $color-text-primary;
   background: rgba(255, 255, 255, 0.7);
   width: 40px;
   height: 40px;
-  padding: 8px;
-  border-radius: 50%;
+  padding: $spacing-8;
+  border-radius: $radius-round;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 12px rgba(166, 127, 120, 0.15);
-  font-size: 12px;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-s;
+  font-size: $fs-small;
   &:hover {
-    background: var(--text-primary);
-    color: #fff;
-    border-color: var(--text-primary);
+    background: $color-text-primary;
+    color: $color-white;
+    border-color: $color-text-primary;
     box-shadow: 0 0 15px rgba(50, 67, 95, 0.3);
   }
 }
 
 :deep(.swiper-pagination-bullet) {
-  background: var(--text-secondary);
+  background: $color-text-secondary;
   opacity: 0.3;
 }
 
 :deep(.swiper-pagination-bullet-active) {
-  background: var(--accent-color);
+  background: $color-accent;
   opacity: 1;
   width: 20px;
-  border-radius: 4px;
+  border-radius: $radius-s;
   transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
   .row-container {
     flex-direction: column;
-    gap: 2rem;
+    gap: $spacing-24;
     &.reverse {
       flex-direction: column;
     }

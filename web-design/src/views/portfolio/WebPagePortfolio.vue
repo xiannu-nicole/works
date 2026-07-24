@@ -1,16 +1,24 @@
-<script setup>
-import applyImg_l from "@/assets/imgs/apply/1-l.png";
-import applyImg_s from "@/assets/imgs/apply/1-s.png";
+<script setup lang="ts">
+import { img } from "@/assets/js/img";
+
+// 1. defineProps
+
+// 2. defineEmits
+
+// 3. ref / reactive (狀態宣告)
+
+// 4. computed
+
+// 5. watch
+
+// 6. Functions
+
+// 7. Lifecycle Hooks
 </script>
 
 <template>
   <div class="webpage-container fade-in">
     <div class="project-section">
-      <!-- <div class="header-section">
-        <h2 class="title">一般網頁專案</h2>
-        <p class="subtitle">提供線上系統服務與形象網頁建置。</p>
-      </div> -->
-
       <!-- 專案 1：特約商店線上申辦 -->
       <div class="project-item">
         <div class="project-header">
@@ -22,12 +30,13 @@ import applyImg_s from "@/assets/imgs/apply/1-s.png";
 
         <div class="pic-wrapper">
           <div class="img-box">
-            <img class="img-l" :src="applyImg_l" alt="特約商店線上申辦" />
-            <img class="img-s" :src="applyImg_s" alt="特約商店線上申辦" />
+            <img class="img-l" :src="img.applyImgL" alt="特約商店線上申辦" />
+            <img class="img-s" :src="img.applyImgS" alt="特約商店線上申辦" />
             <div class="overlay-action hidden-mobile">
               <a
                 href="https://www.pluspay.com.tw/Content/Merchant/Application.html"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="primary-btn"
               >
                 在新視窗開啟連結 ↗
@@ -39,6 +48,7 @@ import applyImg_s from "@/assets/imgs/apply/1-s.png";
             <a
               href="https://www.pluspay.com.tw/Content/Merchant/Application.html"
               target="_blank"
+              rel="noopener noreferrer"
               class="primary-btn"
             >
               在新視窗開啟連結 ↗
@@ -54,112 +64,78 @@ import applyImg_s from "@/assets/imgs/apply/1-s.png";
 .webpage-container {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: $spacing-48;
   width: 100%;
   align-items: center;
-  padding: 1rem 0;
+  padding: $spacing-16 0;
 }
 
 .project-section {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: $spacing-48;
   align-items: center;
-}
-
-.header-section {
-  text-align: center;
-  max-width: 800px;
-  margin-bottom: 2rem;
-
-  .title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    background: linear-gradient(
-      135deg,
-      var(--text-primary) 0%,
-      var(--accent-color) 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .subtitle {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
 }
 
 .project-item {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: $spacing-32;
   align-items: center;
 }
 
 .project-header {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: $spacing-16;
 
   .project-title {
-    font-size: 1.8rem;
-    color: var(--text-primary);
-    margin-bottom: 0.8rem;
+    font-size: $fs-h2;
+    color: $color-text-primary;
+    margin-bottom: $spacing-12;
   }
 
   .project-desc {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.5;
+    color: $color-text-secondary;
+    font-size: $fs-base;
+    line-height: $line-height-base;
     max-width: 600px;
     margin: 0 auto;
   }
 }
 
-.iframe-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-}
-
 .action-box {
   text-align: center;
-  background: var(--glass-bg);
-  padding: 1.5rem 2rem;
-  border-radius: 16px;
-  border: 1px solid var(--glass-border);
+  background: $color-glass-bg;
+  padding: $spacing-24 $spacing-32;
+  border-radius: $radius-l;
+  border: 1px solid $color-border;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 
   p {
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-16;
+    font-size: $fs-base;
   }
 }
 
 .primary-btn {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: var(--text-primary);
-  color: #fff;
+  padding: $spacing-12 $spacing-24;
+  background: $color-text-primary;
+  color: $color-white;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 500;
+  border-radius: $radius-m;
+  font-weight: $fw-medium;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(50, 67, 95, 0.2);
+  box-shadow: $shadow-s;
 
   &:hover {
-    background: var(--accent-color);
+    background: $color-accent;
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(166, 127, 120, 0.3);
+    box-shadow: $shadow-m;
   }
 }
 
@@ -169,16 +145,16 @@ import applyImg_s from "@/assets/imgs/apply/1-s.png";
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: $spacing-32;
 }
 
 .img-box {
   position: relative;
   width: 100%;
-  border-radius: 12px;
+  border-radius: $radius-l;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(166, 127, 120, 0.25);
-  border: 1px solid var(--glass-border);
+  box-shadow: $shadow-l;
+  border: 1px solid $color-border;
   cursor: pointer;
 
   img {
@@ -217,7 +193,7 @@ import applyImg_s from "@/assets/imgs/apply/1-s.png";
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(50, 67, 95, 0.6); // Gunmetal color with opacity
+  background: rgba(50, 67, 95, 0.6);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   display: flex;
@@ -233,34 +209,34 @@ import applyImg_s from "@/assets/imgs/apply/1-s.png";
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition-delay: 0.1s;
-    background: #fff;
-    color: var(--text-primary);
-    font-size: 1.1rem;
-    padding: 1rem 2rem;
+    background: $color-white;
+    color: $color-text-primary;
+    font-size: $fs-h3;
+    padding: $spacing-16 $spacing-32;
 
     &:hover {
-      background: var(--accent-color);
-      color: #fff;
+      background: $color-accent;
+      color: $color-white;
       transform: translateY(-2px) scale(1.05);
     }
   }
 }
 
 .show-mobile {
-  display: none; // 預設隱藏，只在手機版顯示
+  display: none;
 }
 
 @media (max-width: 768px) {
   .hidden-mobile {
-    display: none !important; // 手機版不顯示 hover 遮罩層
+    display: none !important;
   }
 
   .show-mobile {
-    display: block; // 手機版顯示獨立的 action-box
+    display: block;
   }
 
   .img-box {
-    pointer-events: none; // 避免手機版觸發 hover
+    pointer-events: none;
     img {
       &.img-l {
         display: none;

@@ -1,17 +1,23 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, FreeMode } from "swiper/modules";
+import type { ProjectCategory } from "@/types/portfolio";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 
+// 1. defineProps
+
+// 2. defineEmits
+
+// 3. ref / reactive (狀態宣告)
 const modules = [Navigation, Pagination, FreeMode];
 
-// 依據產業類型分類
-const portfolioCategories = ref([
+// 依據產業類型分類資料
+const portfolioCategories = ref<ProjectCategory[]>([
   {
     categoryName: "餐飲 / 食品業",
     subTitle: "甜點店、傳統食品、餐飲品牌形象網站",
@@ -25,29 +31,25 @@ const portfolioCategories = ref([
       {
         id: "hanshao-korea",
         title: "韓燒 - 銅盤烤肉",
-        image:
-          "https://element.com.tw/hanshao-korea/public/image/about/img-01.jpg",
+        image: "https://element.com.tw/hanshao-korea/public/image/about/img-01.jpg",
         url: "https://element.com.tw/hanshao-korea/",
       },
       {
         id: "snow-sakura",
         title: "櫻花樹夏",
-        image:
-          "https://yihsuanwebdesign.com/snow-sakura/public/image/banner/img-02.jpg?1025",
+        image: "https://yihsuanwebdesign.com/snow-sakura/public/image/banner/img-02.jpg?1025",
         url: "https://yihsuanwebdesign.com/snow-sakura/",
       },
       {
         id: "accuei-dessert",
         title: "Accueil 艾格伊",
-        image:
-          "https://hemusih.com/accuei-dessert/public/image/gallery/img-08.jpg",
+        image: "https://hemusih.com/accuei-dessert/public/image/gallery/img-08.jpg",
         url: "https://hemusih.com/accuei-dessert/",
       },
       {
         id: "peng-agriculture",
         title: "湳雅山農鋪",
-        image:
-          "https://yihsuanwebdesign.com/peng-agriculture/public/image/about/img-02.jpg",
+        image: "https://yihsuanwebdesign.com/peng-agriculture/public/image/about/img-02.jpg",
         url: "https://yihsuanwebdesign.com/peng-agriculture/",
       },
     ],
@@ -59,8 +61,7 @@ const portfolioCategories = ref([
       {
         id: "guangyu-inn",
         title: "光域文旅",
-        image:
-          "https://hemusih.com/guangyu-inn/img/rooms/1f/%E6%B5%AE%E5%85%89/1.jpg",
+        image: "https://hemusih.com/guangyu-inn/img/rooms/1f/%E6%B5%AE%E5%85%89/1.jpg",
         url: "https://hemusih.com/guangyu-inn/",
       },
       {
@@ -72,22 +73,19 @@ const portfolioCategories = ref([
       {
         id: "lotus-design",
         title: "大荷設計",
-        image:
-          "https://hemusih.com/lotus-design/public/image/banner/img-01.jpg",
+        image: "https://hemusih.com/lotus-design/public/image/banner/img-01.jpg",
         url: "https://hemusih.com/lotus-design/",
       },
       {
         id: "a-shun-moving",
         title: "阿順搬家",
-        image:
-          "https://yihsuanwebdesign.com/a-shun-moving/public/image/about/img-01.jpg",
+        image: "https://yihsuanwebdesign.com/a-shun-moving/public/image/about/img-01.jpg",
         url: "https://yihsuanwebdesign.com/a-shun-moving/",
       },
       {
         id: "yingsh-waterproof",
         title: "瀛升蜘蛛人",
-        image:
-          "	https://lightandshadow.com.tw/yingsh-waterproof/image/banner/banner-l.jpg",
+        image: "https://lightandshadow.com.tw/yingsh-waterproof/image/banner/banner-l.jpg",
         url: "https://lightandshadow.com.tw/yingsh-waterproof/",
       },
     ],
@@ -99,15 +97,13 @@ const portfolioCategories = ref([
       {
         id: "rose-beauty",
         title: "Rose 顏究所美學",
-        image:
-          "https://lightandshadow.com.tw/rose-beauty/public/image/banner/img-01.jpg",
+        image: "https://lightandshadow.com.tw/rose-beauty/public/image/banner/img-01.jpg",
         url: "https://lightandshadow.com.tw/rose-beauty/",
       },
       {
         id: "aesthetics-studio",
         title: "三紋藝術紋繡美學",
-        image:
-          "https://element.com.tw/aesthetics-studio/public/image/about/img-02.jpg",
+        image: "https://element.com.tw/aesthetics-studio/public/image/about/img-02.jpg",
         url: "https://element.com.tw/aesthetics-studio/",
       },
       {
@@ -125,29 +121,25 @@ const portfolioCategories = ref([
       {
         id: "peggie-music-house",
         title: "帕帕拉夏音樂學苑",
-        image:
-          "https://hemusih.com/peggie-music-house/public/image/banner/img-01.jpg",
+        image: "https://hemusih.com/peggie-music-house/public/image/banner/img-01.jpg",
         url: "https://hemusih.com/peggie-music-house/",
       },
       {
         id: "he-feng-japanese-tutor",
         title: "和風塾線上真人日語家教",
-        image:
-          "https://yihsuanwebdesign.com/he-feng-japanese-tutor/public/image/contact/bg-01.jpg",
+        image: "https://yihsuanwebdesign.com/he-feng-japanese-tutor/public/image/contact/bg-01.jpg",
         url: "https://yihsuanwebdesign.com/he-feng-japanese-tutor/",
       },
       {
         id: "infinity-spin-dance",
         title: "Infinityspin 無限旋轉舞蹈工作室",
-        image:
-          "https://yihsuanwebdesign.com/infinity-spin-dance/public/image/about/img-03.jpg",
+        image: "https://yihsuanwebdesign.com/infinity-spin-dance/public/image/about/img-03.jpg",
         url: "https://yihsuanwebdesign.com/infinity-spin-dance/",
       },
       {
         id: "la-misericordia-del-arge",
         title: "藝典美術畫室",
-        image:
-          "https://element.com.tw/la-misericordia-del-arge/public/image/banner/img-01.jpg",
+        image: "https://element.com.tw/la-misericordia-del-arge/public/image/banner/img-01.jpg",
         url: "https://element.com.tw/la-misericordia-del-arge/",
       },
     ],
@@ -162,6 +154,14 @@ const swiperBreakpoints = {
   1024: { slidesPerView: 3.5, spaceBetween: 30 },
   1440: { slidesPerView: 4.5, spaceBetween: 30 },
 };
+
+// 4. computed
+
+// 5. watch
+
+// 6. Functions
+
+// 7. Lifecycle Hooks
 </script>
 
 <template>
@@ -172,8 +172,8 @@ const swiperBreakpoints = {
     </div>
 
     <div
-      v-for="(category, index) in portfolioCategories"
-      :key="index"
+      v-for="category in portfolioCategories"
+      :key="category.categoryName"
       class="category-row"
     >
       <div class="project-header">
@@ -205,9 +205,9 @@ const swiperBreakpoints = {
               <div class="image-wrapper">
                 <img :src="project.image" :alt="project.title" loading="lazy" />
                 <div class="overlay">
-                  <span class="view-btn"
-                    >前往網站 <span class="arrow">↗</span></span
-                  >
+                  <span class="view-btn">
+                    前往網站 <span class="arrow">↗</span>
+                  </span>
                 </div>
               </div>
               <div class="card-info">
@@ -225,24 +225,24 @@ const swiperBreakpoints = {
 .portfolio-container {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: $spacing-48;
   width: 100%;
-  padding-bottom: 2rem;
+  padding-bottom: $spacing-32;
 }
 
 .header-section {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 2rem;
+  margin: 0 auto $spacing-32;
 
   .title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+    font-size: $fs-xxl;
+    font-weight: $fw-bold;
+    margin-bottom: $spacing-16;
     background: linear-gradient(
       135deg,
-      var(--text-primary) 0%,
-      var(--accent-color) 100%
+      $color-text-primary 0%,
+      $color-accent 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -250,33 +250,33 @@ const swiperBreakpoints = {
   }
 
   .subtitle {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    line-height: 1.6;
+    color: $color-text-secondary;
+    font-size: $fs-h3;
+    line-height: $line-height-loose;
   }
 }
 
 .category-row {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: $spacing-24;
   width: 100%;
 }
 
 .project-header {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: $spacing-16;
 
   .project-title {
-    font-size: 1.8rem;
-    color: var(--text-primary);
-    margin-bottom: 0.8rem;
+    font-size: $fs-h2;
+    color: $color-text-primary;
+    margin-bottom: $spacing-12;
   }
 
   .project-desc {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.5;
+    color: $color-text-secondary;
+    font-size: $fs-base;
+    line-height: $line-height-base;
     max-width: 600px;
     margin: 0 auto;
   }
@@ -285,13 +285,12 @@ const swiperBreakpoints = {
 .swiper-wrapper-container {
   width: 100%;
   position: relative;
-  padding: 0 1rem;
+  padding: 0 $spacing-16;
 }
 
 .project-swiper {
   width: 100%;
-  padding: 0 1rem 1.5rem;
-  /* 允許左右按鈕超出邊界顯示 */
+  padding: 0 $spacing-16 $spacing-24;
   overflow: visible;
 }
 
@@ -299,8 +298,8 @@ const swiperBreakpoints = {
   display: block;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.4);
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
+  border: 1px solid $color-border;
+  border-radius: $radius-l;
   overflow: hidden;
   transition:
     transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
@@ -308,8 +307,8 @@ const swiperBreakpoints = {
     border-color 0.4s ease;
 
   &:hover {
-    box-shadow: 0 15px 30px rgba(166, 127, 120, 0.15);
-    border-color: rgba(166, 127, 120, 0.4);
+    box-shadow: $shadow-m;
+    border-color: $color-border;
     .image-wrapper img {
       transform: scale(1.08);
     }
@@ -325,7 +324,7 @@ const swiperBreakpoints = {
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background-color: var(--bg-color);
+  background-color: $color-bg;
 
   img {
     width: 100%;
@@ -351,20 +350,20 @@ const swiperBreakpoints = {
   align-items: center;
   opacity: 0;
   transition: opacity 0.4s ease;
-  padding-top: 18px;
+  padding-top: $spacing-20;
 }
 
 .view-btn {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.5rem;
+  gap: $spacing-8;
+  padding: $spacing-8 $spacing-24;
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.6);
-  border: 1px solid #fff;
-  color: var(--text-primary);
-  font-weight: 600;
-  font-size: 0.95rem;
+  border: 1px solid $color-white;
+  color: $color-text-primary;
+  font-weight: $fw-medium;
+  font-size: $fs-base;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 
@@ -378,38 +377,37 @@ const swiperBreakpoints = {
 }
 
 .card-info {
-  padding: 1rem 1.2rem;
-  border-top: 1px solid rgba(166, 127, 120, 0.1);
-  background-color: #fff;
+  padding: $spacing-16 $spacing-20;
+  border-top: 1px solid $color-border;
+  background-color: $color-white;
   h4 {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--text-primary);
+    font-size: $fs-h3;
+    font-weight: $fw-medium;
+    color: $color-text-primary;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 }
 
-/* 覆寫 Swiper 導覽按鈕 */
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
-  color: var(--text-primary);
+  color: $color-text-primary;
   background: rgba(255, 255, 255, 0.7);
   width: 40px;
   height: 40px;
-  padding: 8px;
-  border-radius: 50%;
+  padding: $spacing-8;
+  border-radius: $radius-round;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 12px rgba(166, 127, 120, 0.15);
+  border: 1px solid $color-border;
+  box-shadow: $shadow-s;
   top: 40%;
-  font-size: 12px;
+  font-size: $fs-small;
   &:hover {
-    background: var(--text-primary);
-    color: #fff;
-    border-color: var(--text-primary);
+    background: $color-text-primary;
+    color: $color-white;
+    border-color: $color-text-primary;
     box-shadow: 0 0 15px rgba(50, 67, 95, 0.3);
   }
 }
@@ -422,11 +420,10 @@ const swiperBreakpoints = {
   right: -1.8rem;
 }
 
-/* 響應式調整 */
 @media (max-width: 768px) {
   :deep(.swiper-button-next),
   :deep(.swiper-button-prev) {
-    display: none; /* 手機版隱藏箭頭，主要靠滑動 */
+    display: none;
   }
 }
 </style>

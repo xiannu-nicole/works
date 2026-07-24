@@ -1,0 +1,27 @@
+// 字體大小 (Font Sizes)
+$fs-small: 12px;
+$fs-label: 12px;
+$fs-base: 14px;
+$fs-h3: 16px;
+$fs-h2: 18px;
+$fs-h1: 20px;
+$fs-xxl: 24px;
+
+// 字體字重 (Font Weights)
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+
+// 行高 (Line Heights)
+$line-height-tight: 1.25;
+$line-height-base: 1.5;
+$line-height-loose: 1.75;
+
+// 字型 Mixin
+@mixin font-style($size: $fs-base, $weight: $fw-regular, $line-height: $line-height-base, $space: 0.05em) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  letter-spacing: $space;
+}

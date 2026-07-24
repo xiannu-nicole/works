@@ -1,0 +1,81 @@
+// 品牌與主要色彩 (Brand & Primary)
+$color-primary: #32435f;
+$color-primary-hover: #25334a;
+$color-primary-light: #e6f2ec;
+$color-primary-bg: #f4faf7;
+
+// 強調與動作 (Accent & Action)
+$color-accent: #a67f78;
+$color-accent-hover: #8f6a63;
+$color-accent-light: #fdebe5;
+
+// 資訊與通知 (Info)
+$color-info: #2e5eaa;
+$color-info-hover: #275090;
+$color-info-light: #eff6ff;
+
+// 狀態色彩 (Status)
+$color-success: #4caf50;
+$color-success-light: #e8f5e9;
+$color-warning: #e6a23c;
+$color-warning-light: #fff4e5;
+$color-danger: #d32f2f;
+$color-danger-light: #fdeaea;
+$color-miss: #2e5eaa;
+$color-miss-light: #eff6ff;
+
+// 灰階系統 (Gray Scale)
+$gray-900: #1f1f1f;
+$gray-800: #343a40;
+$gray-700: #4f4f4f;
+$gray-600: #6c757d;
+$gray-500: #9e9e9e;
+$gray-400: #ced4da;
+$gray-300: #e0e0e0;
+$gray-200: #ededed;
+$gray-100: #f7f7f7;
+$gray-50: #fafafa;
+
+// 基礎與版面 (Base & Layout)
+$color-white: #ffffff;
+$color-bg: #e1dcd9;
+$color-border: rgba(166, 127, 120, 0.2);
+$color-card-bg: #ffffff;
+$color-sidebar-bg: #fafafa;
+$color-glass-bg: rgba(225, 220, 217, 0.6);
+$color-glass-menu-bg: rgba(225, 220, 217, 0.95);
+
+// 語意文字 (Semantic Text)
+$color-text-primary: #32435f;
+$color-text-secondary: #8f8681;
+
+// 專用狀態 Mixins
+@mixin color-level($level) {
+  @if $level == 1 {
+    color: $color-primary;
+  } @else if $level == 2 {
+    color: $color-accent;
+  } @else {
+    color: $color-text-secondary;
+  }
+}
+
+@mixin color-status($status) {
+  @if $status == "success" {
+    color: $color-success;
+    background-color: $color-success-light;
+  } @else if $status == "warning" {
+    color: $color-warning;
+    background-color: $color-warning-light;
+  } @else if $status == "danger" {
+    color: $color-danger;
+    background-color: $color-danger-light;
+  } @else {
+    color: $color-info;
+    background-color: $color-info-light;
+  }
+}
+
+@mixin color-role($role) {
+  color: $color-text-primary;
+}
