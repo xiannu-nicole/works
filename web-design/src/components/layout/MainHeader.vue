@@ -1,40 +1,3 @@
-<script setup lang="ts">
-import { ref, computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import { img } from "@/assets/js/img";
-
-// 1. defineProps
-
-// 2. defineEmits
-
-// 3. ref / reactive (狀態宣告)
-const route = useRoute();
-const router = useRouter();
-const isMobileMenuOpen = ref(false);
-
-// 4. computed
-const activeTab = computed(() => {
-  if (route.name === "pluspay" || route.matched.some((r) => r.name === "pluspay")) {
-    return "pluspay";
-  }
-  return "onePagePortfolio";
-});
-
-// 5. watch
-
-// 6. Functions (業務邏輯函式)
-const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value;
-};
-
-const handleSelectTab = (routeName: string) => {
-  isMobileMenuOpen.value = false;
-  router.push({ name: routeName });
-};
-
-// 7. Lifecycle Hooks
-</script>
-
 <template>
   <header class="glass-header">
     <h1 class="logo" @click="handleSelectTab('onePagePortfolio')">
@@ -67,9 +30,55 @@ const handleSelectTab = (routeName: string) => {
       >
         全盈支付
       </button>
+      <button
+        :class="['tab-btn', { active: activeTab === 'hospitalProject' }]"
+        @click="handleSelectTab('hospitalProject')"
+      >
+        醫療專案
+      </button>
     </nav>
   </header>
 </template>
+
+<script setup lang="ts">
+import { ref, computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { img } from "@/assets/js/img";
+
+// 1. defineProps
+
+// 2. defineEmits
+
+// 3. ref / reactive (狀態宣告)
+const route = useRoute();
+const router = useRouter();
+const isMobileMenuOpen = ref(false);
+
+// 4. computed
+const activeTab = computed(() => {
+  if (route.name === "pluspay" || route.matched.some((r) => r.name === "pluspay")) {
+    return "pluspay";
+  }
+  if (route.name === "hospitalProject") {
+    return "hospitalProject";
+  }
+  return "onePagePortfolio";
+});
+
+// 5. watch
+
+// 6. Functions (業務邏輯函式)
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
+
+const handleSelectTab = (routeName: string) => {
+  isMobileMenuOpen.value = false;
+  router.push({ name: routeName });
+};
+
+// 7. Lifecycle Hooks
+</script>
 
 <style lang="scss" scoped>
 .glass-header {

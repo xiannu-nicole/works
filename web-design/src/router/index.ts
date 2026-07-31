@@ -12,11 +12,8 @@ const routes: Array<RouteRecordRaw> = [
     name: "pluspay",
     component: () => import("@/views/portfolio/PlusPayView.vue"),
     meta: { title: "全盈支付" },
+    redirect: { name: "webView" },
     children: [
-      {
-        path: "",
-        redirect: { name: "webView" },
-      },
       {
         path: "webview",
         name: "webView",
@@ -30,6 +27,12 @@ const routes: Array<RouteRecordRaw> = [
         meta: { title: "全盈支付 - 網頁專案" },
       },
     ],
+  },
+  {
+    path: "/hospitalProject",
+    name: "hospitalProject",
+    component: () => import("@/views/portfolio/HospitalPortfolio.vue"),
+    meta: { title: "醫療資訊系統" },
   },
 ];
 

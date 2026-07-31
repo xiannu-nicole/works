@@ -8,6 +8,7 @@ trigger: always_on
 
 - **目標環境**：Chrome 90+ / 保守相容模式。
 - **開發模式**：強制使用 `<script setup lang="ts">`。
+- **單一元件結構順序**：強制使用 `<template>`、`<script setup>`、`<style>` 的結構順序。
 - **狀態管理**：Pinia 需保持結構扁平，對齊 Vuex 邏輯。
 
 ---

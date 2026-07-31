@@ -29,6 +29,12 @@ import vendor4 from "@/assets/imgs/vendor/4.png";
 import vendor5 from "@/assets/imgs/vendor/5.png";
 import vendor6 from "@/assets/imgs/vendor/6.png";
 import vendor7 from "@/assets/imgs/vendor/7.png";
+import hospitalDashboardMockup from "@/assets/imgs/hospital/hospital_dashboard_mockup.png";
+import hospital_ui_1 from "@/assets/imgs/hospital/hospital_ui_1.png";
+import hospital_ui_2 from "@/assets/imgs/hospital/hospital_ui_2.png";
+import hospital_ui_3 from "@/assets/imgs/hospital/hospital_ui_3.png";
+import hospital_ui_4 from "@/assets/imgs/hospital/hospital_ui_4.png";
+import hospital_ui_5 from "@/assets/imgs/hospital/hospital_ui_5.png";
 
 export const img = {
   barIcon,
@@ -56,4 +62,10 @@ export const img = {
   vendor5,
   vendor6,
   vendor7,
+  hospitalDashboardMockup,
+  hospital_ui_1,
+  hospital_ui_2,
+  hospital_ui_3,
+  hospital_ui_4,
+  hospital_ui_5
 };
