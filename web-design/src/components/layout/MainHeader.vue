@@ -3,39 +3,25 @@
     <h1 class="logo" @click="handleSelectTab('onePagePortfolio')">
       Nicole's Works
     </h1>
-    <button
-      class="hamburger"
-      @click="toggleMobileMenu"
-      aria-label="選單"
-    >
-      <img
-        v-if="!isMobileMenuOpen"
-        :src="img.barIcon"
-        alt="開啟選單"
-        class="menu-icon"
-      />
+    <button class="hamburger" @click="toggleMobileMenu" aria-label="選單">
+      <img v-if="!isMobileMenuOpen" :src="img.barIcon" alt="開啟選單" class="menu-icon" />
       <img v-else :src="img.closeIcon" alt="關閉選單" class="menu-icon" />
     </button>
 
     <nav class="nav-tabs" :class="{ 'is-open': isMobileMenuOpen }">
-      <button
-        :class="['tab-btn', { active: activeTab === 'onePagePortfolio' }]"
-        @click="handleSelectTab('onePagePortfolio')"
-      >
-        行銷一頁式專案
-      </button>
-      <button
-        :class="['tab-btn', { active: activeTab === 'pluspay' }]"
-        @click="handleSelectTab('pluspay')"
-      >
-        全盈支付
-      </button>
-      <button
-        :class="['tab-btn', { active: activeTab === 'hospitalProject' }]"
-        @click="handleSelectTab('hospitalProject')"
-      >
+      <button :class="['tab-btn', { active: activeTab === 'hospitalProject' }]"
+        @click="handleSelectTab('hospitalProject')">
         醫療專案
       </button>
+      <button :class="['tab-btn', { active: activeTab === 'pluspay' }]" @click="handleSelectTab('pluspay')">
+        全盈支付
+      </button>
+      <button :class="['tab-btn', { active: activeTab === 'onePagePortfolio' }]"
+        @click="handleSelectTab('onePagePortfolio')">
+        行銷一頁式專案
+      </button>
+
+
     </nav>
   </header>
 </template>
@@ -98,11 +84,9 @@ const handleSelectTab = (routeName: string) => {
 .logo {
   font-size: $fs-h1;
   font-weight: $fw-bold;
-  background: linear-gradient(
-    to right,
-    $color-text-primary,
-    $color-accent
-  );
+  background: linear-gradient(to right,
+      $color-text-primary,
+      $color-accent );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -145,6 +129,7 @@ const handleSelectTab = (routeName: string) => {
 
   &.active {
     color: $color-accent;
+
     &::after {
       width: 100%;
     }

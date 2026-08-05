@@ -3,6 +3,10 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from "vue-router"
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
+    redirect: { name: "hospitalProject" },
+  },
+  {
+    path: "/onePagePortfolio",
     name: "onePagePortfolio",
     component: () => import("@/views/portfolio/OnePagePortfolio.vue"),
     meta: { title: "行銷一頁式專案" },
